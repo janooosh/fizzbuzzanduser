@@ -18,8 +18,32 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
+            table,th,td {
+                border: 1px solid black;
+                border-collapse:collapse;
+            }
         </style>
     </head>
-    <body class="antialiased">
+    <body class="antialiased" style="margin:10px;">
+        <h1>Benutzer</h1>
+        <p>{{count($users)}} Benutzer</p>
+        <div >
+            <table style="width:100%;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{$user->id}}</td>
+                            <td>{{$user->name}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>
